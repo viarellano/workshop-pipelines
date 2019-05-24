@@ -13,5 +13,11 @@ pipeline {
                 sh "./mvnw clean compile -X"
             }
         }
+        stage('90-stage-quality-profile') {
+            steps {
+                echo ":: 00-stage-compile -=- mvn compile ::"
+                sh "./mvnw sonar:sonar"
+            }
+        }
     }
 }
