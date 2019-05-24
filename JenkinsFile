@@ -17,8 +17,6 @@ pipeline {
             }
         }
 
-        ...
-
         stage('10-stage-compile') {
             steps {
                 // steps for stage n come here
