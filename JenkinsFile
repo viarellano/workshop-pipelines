@@ -2,7 +2,9 @@
 
 pipeline {
     agent {
-        // how the pipeline will be built
+         docker {
+            image 'adoptopenjdk/openjdk11:jdk-11.0.2.9'
+        }
     }
 
     environment {
@@ -10,18 +12,13 @@ pipeline {
     }
 
     stages {
-        stage('00-stage-clone') {
+        stage('00-stage-compile') {
             steps {
-                echo ":: 00-stage-clone -=- clone repo ::"
-                // steps for stage 1 come here
+                echo ":: 00-stage-compile -=- mvn compile ::"
+                sh "./mvnw clean compile -X"
             }
         }
 
-        stage('10-stage-compile') {
-            steps {
-                // steps for stage n come here
-            }
-        }
     }
 
     post {
