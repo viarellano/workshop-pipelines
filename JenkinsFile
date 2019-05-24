@@ -6,11 +6,6 @@ pipeline {
             image 'adoptopenjdk/openjdk11:jdk-11.0.2.9'
         }
     }
-
-    environment {
-        // properties or environment variables, new or derived
-    }
-
     stages {
         stage('00-stage-compile') {
             steps {
@@ -18,10 +13,5 @@ pipeline {
                 sh "./mvnw clean compile -X"
             }
         }
-
-    }
-
-    post {
-        // post-process activities, e.g. cleanup or publish
     }
 }
